@@ -1,6 +1,6 @@
 import factory
 
-from models import *
+from product.models import *
 
 # Category
 class CategoryFactory(factory.django.DjangoModelFactory):
@@ -29,3 +29,5 @@ class ProductFactory(factory.django.DjangoModelFactory):
                 
     class Meta:
         model = Product
+        # Correção de Warning
+        skip_postgeneration_save=True
