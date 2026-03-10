@@ -6,7 +6,7 @@ from product import viewsets
 router = routers.SimpleRouter()
 router.register(r'product', viewsets.ProductViewSet, basename='product')
 
-urlspatterns = [
+urlpatterns = [
     path('', include(router.urls)),
 ]
 

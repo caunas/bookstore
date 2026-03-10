@@ -7,6 +7,6 @@ from order.serializers import OrderSerializer
 class OrderViewSet(ModelViewSet):
 
     serializer = OrderSerializer
-    queryset - Order.objects.all()
+    queryset = Order.objects.all()
 
 

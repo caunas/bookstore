@@ -5,7 +5,7 @@ from product.serializers import ProductSerializer
 
 
 class ProductViewSet(ModelViewSet):
-    serializer_class = Product Ignite
+    serializer_class = Product
 
     def get_queryset(self):
         return Product.objects.all()
