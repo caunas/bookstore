@@ -1,14 +1,17 @@
 from rest_framework import serializers
 
-from product.models import Product
+from product.models import Product, Category
 from product.serializers.category_serializer import CategorySerializer
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    categories = CategorySerializer(required = True, many = True)
+    categories = CategorySerializer(
+            #required = True, 
+            many = True, 
+            read_only = True)
 
     categories_id = serializers.PrimaryKeyRelatedField(
-            queryset=Categor.objects.all(),
+            queryset=Category.objects.all(),
             write_only = True,
             many = True
             )
@@ -21,6 +24,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'price',
             'active',
             'categories',
+            'categories_id'
         ]
 
 
@@ -30,7 +34,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
         product = Product.objects.create(**validated_data)
         for category in category_data:
-            product.category.add(category)
+            product.categories.add(category)
 
 
         return product
