@@ -11,11 +11,10 @@ from rest_framework.authtoken.models import Token
 from django.urls import reverse
 
 
-
 class TestProductViewSet(APITestCase):
-    client = APIClient()
 
     def setUp(self):
+        self.client = APIClient()
         self.user = UserFactory()
         self.token = Token.objects.create(user = self.user)
 
