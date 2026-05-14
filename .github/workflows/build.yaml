@@ -6,9 +6,9 @@ jobs:
   build:
     strategy:
       fail-test: false
-    matrix:
-      python-version: [3.12]
-      poetry-version: [1.0.0, 1.1.4]
+      matrix:
+        python-version: [3.12]
+        poetry-version: [1.0.0, 1.1.4]
 
     runs-on: ubuntu-latest
 
