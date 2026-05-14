@@ -29,14 +29,17 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
-
+      
+      - name: Export Poetry env
+        run: echo "$(poetry env info --path)/bin" >> $GITHUB_PATH    
+      
       - name: Test
         run: poetry run python manage.py test
 
-      - name: Wemake Python Styleguide
-        uses: wemake-services/wemake-python-styleguide@0.16.0
-        continue-on-error: true
+      - name: Lint with reviewdog
+        uses: reviewdog/action-flake8@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+          flake8_args: "."
