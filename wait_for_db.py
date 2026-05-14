@@ -19,6 +19,7 @@ while True:
         )
         conn.close()
         print("Banco pronto!")
+        print("Inicializando backend...")
         break
     except psycopg2.OperationalError:
         print("Aguardando banco...")
