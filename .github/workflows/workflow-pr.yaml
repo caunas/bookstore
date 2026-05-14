@@ -5,9 +5,10 @@ on: [pull_request]
 jobs:
 
   qa:
+    name: Quality check
     runs-on: ubuntu-latest
     steps:
-      - use: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@master
