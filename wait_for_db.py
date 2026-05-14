@@ -18,8 +18,7 @@ while True:
             port=DB_PORT,
         )
         conn.close()
-        print("Banco pronto!")
-        print("Inicializando backend...")
+        print("Banco ONLINE!")
         break
     except psycopg2.OperationalError:
         print("Aguardando banco...")
