@@ -4,6 +4,10 @@ on: [push]
 
 jobs:
   build:
+    env:
+      DJANGO_ALLOWED_HOSTS: localhost 127.0.0.1 testserver
+
+      
     strategy:
       fail-fast: false
       matrix:
