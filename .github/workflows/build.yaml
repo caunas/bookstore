@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     strategy:
-      fail-test: false
+      fail-fast: false
       matrix:
         python-version: [3.12]
         poetry-version: [1.0.0, 1.1.4]
