@@ -8,6 +8,7 @@ DB_PASSWORD = os.getenv("SQL_PASSWORD")
 DB_HOST = os.getenv("SQL_HOST")
 DB_PORT = os.getenv("SQL_PORT")
 
+
 while True:
     try:
         conn = psycopg2.connect(
